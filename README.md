@@ -25,9 +25,8 @@ This project is open source and welcomes contributions. The "Open Mode" feature 
 ## Getting Started
 
 1. Clone the repository
-2. Install dependencies with `npm install`
-3. Configure environment variables (see `.env.local.example`)
-4. Run the development server with `npm run dev`
+2. Install dependencies with `npm install` 
+3. Run the development server with `npm run dev`
 
 ## License
 
