@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Send, User, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useOpenRouter } from '@/hooks/useOpenRouter';
+import { motion } from 'framer-motion';
 import { 
   Dialog,
   DialogContent,
@@ -61,14 +62,6 @@ export default function OpenModePage() {
   
   const [conversation, setConversation] = useState<ConversationExchange[]>([]);
 
-  // Check if API key is set when component loads
-  useEffect(() => {
-    if (!apiKey) {
-      setShowApiKeyDialog(true);
-    }
-  }, [apiKey]);
-
- 
   useEffect(() => {
     let currentExchange: ConversationExchange | null = null;
     const exchanges: ConversationExchange[] = [];
@@ -289,10 +282,22 @@ export default function OpenModePage() {
   return (
     <div className="container py-6 max-w-6xl px-4 md:px-6">
       <div className="mx-auto max-w-2xl text-center mb-6">
-        <h1 className="text-3xl font-bold tracking-tight">Multi-Model</h1>
-        <p className="mt-4 text-muted-foreground">
+        <motion.h1 
+          className="text-3xl font-bold tracking-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          Multi-Model
+        </motion.h1>
+        <motion.p 
+          className="mt-4 text-muted-foreground"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+        >
           Get answers from multiple AI models at once.
-        </p>
+        </motion.p>
       </div>
       
       <div className="flex flex-col flex-1 overflow-hidden">
